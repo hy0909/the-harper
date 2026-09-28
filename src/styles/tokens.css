@@ -1,0 +1,18 @@
+/* THE HARPER 디자인 토큰 — 출처: docs/design-system.md (Brand Identity Guide v1.0) */
+:root {
+  /* 컬러 */
+  --color-key: #6F4A3A;    /* 코코아 브라운: 로고 배경, 대표 컬러, 주요 버튼 */
+  --color-ground: #FAF9F6; /* 그라운드: 배경, 여백 */
+  --color-ink: #3A362F;    /* 잉크: 본문 텍스트, 워드마크 */
+  --color-point: #D6A3AB;  /* 안틱 로즈: 배지, 강조 (작은 면적만) */
+
+  /* 서체 */
+  --font-display: "Cormorant Garamond", Georgia, serif; /* 워드마크, 헤드라인 전용 */
+  --font-body: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
