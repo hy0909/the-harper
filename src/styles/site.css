@@ -1387,7 +1387,7 @@ html[lang="en"] .picks__title {
   /* 사진 위에 지역·제목을 겹쳐 올린다. 그러데이션은 사진에 한 번만 깐다. */
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: 1fr auto auto auto;
   /* 데스크톱에서는 옆 카드 두 줄 높이에 맞춰 늘어난다 */
   min-height: 0;
 }
@@ -1412,7 +1412,8 @@ html[lang="en"] .picks__title {
 }
 
 .pick-card--featured .pick-card__area,
-.pick-card--featured .pick-card__title {
+.pick-card--featured .pick-card__title,
+.pick-card--featured .pick-card__meta {
   grid-column: 1;
   position: relative;
   z-index: 2;
@@ -1436,13 +1437,21 @@ html[lang="en"] .picks__title {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.35;
-  padding-bottom: 24px;
+  padding-bottom: 0;
   -webkit-line-clamp: unset;
 }
 
-.pick-card--featured .pick-card__comment,
-.pick-card--featured .pick-card__chips,
+/* 옆 카드와 같은 간격(12px)·글자 스타일로 by THE HARPER Editors 표기 */
 .pick-card--featured .pick-card__meta {
+  grid-row: 4;
+  font-size: 13px;
+  color: rgba(250, 249, 246, 0.55);
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+.pick-card--featured .pick-card__comment,
+.pick-card--featured .pick-card__chips {
   display: none;
 }
 
