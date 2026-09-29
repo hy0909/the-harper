@@ -185,10 +185,11 @@ p {
   white-space: nowrap;
 }
 
+/* 모바일 메뉴와 같은 서체: Cormorant Garamond 500. 크기는 17px 유지 */
 .header__nav-link {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.01em; /* 영문 메뉴 자간 +1% */
   color: var(--color-ink);
   position: relative;
@@ -595,10 +596,10 @@ p {
   z-index: 1;
 }
 
-/* 모바일: 사진 가로의 28%만 보이므로 세 사람이 걸치는 42% 지점에 맞춘다 */
+/* 모바일: 사진 가로의 28%만 보이므로 첫 번째 인물이 가운데 오는 16% 지점에 맞춘다 */
 @media (max-width: 768px) {
   .hero__image {
-    object-position: 42% 30%;
+    object-position: 16% 30%;
   }
 }
 
