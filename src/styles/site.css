@@ -185,10 +185,10 @@ p {
   white-space: nowrap;
 }
 
-/* 데스크톱 메뉴: 원래 서체(Noto Sans KR 300)로 복원, 21px */
+/* 데스크톱 메뉴: 원래 서체(Noto Sans KR 300)로 복원, 18px */
 .header__nav-link {
   font-family: var(--font-body);
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.01em; /* 영문 메뉴 자간 +1% */
   color: var(--color-ink);
@@ -641,7 +641,7 @@ p {
 }
 
 .hero__subheading {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.45;
   margin-bottom: 64px;
@@ -714,7 +714,7 @@ p {
   }
 
   .hero__subheading {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 104px;
   }
 }
@@ -727,7 +727,7 @@ p {
   }
 
   .hero__subheading {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 48px;
   }
 
