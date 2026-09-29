@@ -185,11 +185,11 @@ p {
   white-space: nowrap;
 }
 
-/* 모바일 메뉴와 같은 서체: Cormorant Garamond 500, 21px */
+/* 데스크톱 메뉴: 원래 서체(Noto Sans KR 300)로 복원, 21px */
 .header__nav-link {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 21px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.01em; /* 영문 메뉴 자간 +1% */
   color: var(--color-ink);
   position: relative;
@@ -538,9 +538,9 @@ p {
 }
 
 /* 섹션명: 기획서의 섹션 이름을 큰 문구 위에 작게 표기 */
-/* 섹션명: 헤더 메뉴와 같은 서체(Cormorant Garamond 500), 첫 글자만 대문자, 자간 +1% */
+/* 섹션명: 헤더 메뉴와 같은 서체(Noto Sans KR 500), 첫 글자만 대문자, 자간 +1% */
 .section__label {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
