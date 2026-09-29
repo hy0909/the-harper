@@ -538,13 +538,14 @@ p {
 }
 
 /* 섹션명: 기획서의 섹션 이름을 큰 문구 위에 작게 표기 */
+/* 섹션명: 헤더 메뉴와 같은 서체(Cormorant Garamond 500), 첫 글자만 대문자, 자간 +1% */
 .section__label {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--gray-500);
   margin: 0 0 16px;
 }
@@ -728,17 +729,6 @@ p {
 .about__card {
   border-top: 1px solid var(--gray-200);
   padding-top: 32px;
-}
-
-/* 숫자: 산세리프, 56px */
-.about__number {
-  font-family: var(--font-body);
-  font-size: 56px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.016em;
-  color: var(--color-ink);
-  margin-bottom: 8px;
 }
 
 /* 제목: 스팟 카드의 '무료 디지털 매거진'과 같은 스타일 */
