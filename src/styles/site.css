@@ -541,7 +541,7 @@ p {
 /* 섹션명: 헤더 메뉴와 같은 서체(Cormorant Garamond 500), 첫 글자만 대문자, 자간 +1% */
 .section__label {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -569,6 +569,7 @@ p {
 /* Hero */
 .hero {
   background: #3A362F;
+  min-height: calc(100vh - 72px);
   min-height: calc(100svh - 72px);
   margin-top: 72px;
   display: flex;
@@ -1694,6 +1695,9 @@ html[lang="en"] .picks__title {
   }
   .area__intro {
     position: static;
+  }
+  .area__description {
+    max-width: none;
   }
   .area__districts-grid {
     gap: 20px;

@@ -321,6 +321,30 @@ function assignPickRoles() {
 
 // Header scroll detection
 // 히어로 위에 있을 때는 투명, 히어로를 벗어나면 배경색 + 블러
+/* 히어로 높이를 첫 화면 기준 px로 고정한다.
+   모바일 브라우저의 주소창이 접히며 화면 높이가 바뀌어도 사진 비율이 흔들리지 않게.
+   가로 폭이 바뀔 때(회전 등)만 다시 잰다. */
+function initHeroHeight() {
+  const hero = document.getElementById('hero');
+  const header = document.querySelector('.header');
+  if (!hero) return;
+  let lastWidth = window.innerWidth;
+  const apply = () => {
+    const headerH = header ? header.offsetHeight : 72;
+    hero.style.minHeight = `${window.innerHeight - headerH}px`;
+  };
+  apply();
+  window.addEventListener('resize', () => {
+    if (window.innerWidth !== lastWidth) {
+      lastWidth = window.innerWidth;
+      apply();
+    }
+  });
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => { lastWidth = window.innerWidth; apply(); }, 150);
+  });
+}
+
 function initHeaderScroll() {
   const header = document.querySelector('.header');
   const hero = document.getElementById('hero');
@@ -711,6 +735,7 @@ function updateMapPopupLanguage() {
 // Initialize all when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageToggle();
+  initHeroHeight();
   initHeaderScroll();
   initMobileMenu();
   initNavLinkClosing();
