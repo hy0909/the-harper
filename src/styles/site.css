@@ -615,13 +615,14 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  /* 제목·소개 글·버튼·화살표 모두 왼쪽 정렬 */
+  align-items: flex-start;
+  text-align: left;
 }
 
 .hero__content {
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .hero__eyebrow {
@@ -646,8 +647,8 @@ p {
   line-height: 1.45;
   margin-bottom: 64px;
   max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* 버튼 안 아이콘(lucide 계열 선 아이콘) */
@@ -666,7 +667,8 @@ p {
   height: 44px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* 화살표 글리프를 글자 왼쪽 끝에 맞춘다 */
+  justify-content: flex-start;
   cursor: pointer;
   z-index: 3;
 }
