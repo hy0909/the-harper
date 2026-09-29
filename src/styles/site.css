@@ -672,10 +672,10 @@ p {
   opacity: 1;
 }
 
-/* lucide arrow-down: 선 끝이 둥근 짝대기 화살표, 32px */
+/* lucide arrow-down: 선 끝이 둥근 짝대기 화살표, 24px */
 .hero__arrow {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   animation: bob 1.6s ease-in-out infinite;
 }
 
