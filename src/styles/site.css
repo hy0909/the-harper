@@ -185,10 +185,10 @@ p {
   white-space: nowrap;
 }
 
-/* 모바일 메뉴와 같은 서체: Cormorant Garamond 500. 크기는 17px 유지 */
+/* 모바일 메뉴와 같은 서체: Cormorant Garamond 500, 21px */
 .header__nav-link {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 21px;
   font-weight: 500;
   letter-spacing: 0.01em; /* 영문 메뉴 자간 +1% */
   color: var(--color-ink);
@@ -417,6 +417,7 @@ p {
   background: var(--color-ink);
   border-radius: 1px;
   transition: all 300ms ease;
+  transform-origin: 50% 50%;
 }
 
 .header__menu-toggle:hover .hamburger__line {
@@ -425,7 +426,7 @@ p {
 
 /* 열렸을 때 X: 1·3번 선을 같은 중심으로 모아 45도 회전. 햄버거와 같은 자리, 비슷한 크기 */
 .header__menu-toggle[aria-expanded="true"] .hamburger__line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg) scaleX(0.95);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .header__menu-toggle[aria-expanded="true"] .hamburger__line:nth-child(2) {
@@ -433,7 +434,7 @@ p {
 }
 
 .header__menu-toggle[aria-expanded="true"] .hamburger__line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg) scaleX(0.95);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Menu */
@@ -639,7 +640,7 @@ p {
   font-size: 22px;
   font-weight: 300;
   line-height: 1.45;
-  margin-bottom: 44px;
+  margin-bottom: 64px;
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
@@ -1233,6 +1234,13 @@ html[lang="en"] .picks__title {
   justify-content: center;
   transition: transform 600ms ease;
   min-width: 0;
+}
+
+.pick-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .pick-card:hover .pick-card__image {
