@@ -161,6 +161,13 @@ p {
   transition: opacity 200ms ease;
 }
 
+/* 모바일: 로고 2px 작게 */
+@media (max-width: 768px) {
+  .header__logo .logo {
+    font-size: 24px;
+  }
+}
+
 .header__logo:hover .logo {
   opacity: 0.7;
 }
@@ -271,6 +278,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 500;
@@ -291,17 +299,7 @@ p {
   min-height: 49px;
 }
 
-/* 모든 버튼 공통 hover: 살짝 떠오르며 그림자, 누르면 제자리 */
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(58, 54, 47, 0.16);
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
+/* 버튼 hover는 색만 바뀐다. 위치 이동·그림자 없음 */
 .btn--primary {
   background: var(--color-ink);
   color: white;
@@ -348,7 +346,6 @@ p {
 
 .btn--inverse:hover {
   background: var(--color-ground);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
 }
 
 /* 흰 테두리 + 흰 글자 (어두운 사진 위) */
@@ -358,10 +355,11 @@ p {
   color: white;
 }
 
+/* hover: 흰색으로 채우고 글자는 Ink */
 .btn--outline-light:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: white;
   border-color: white;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  color: var(--color-ink);
 }
 
 .btn--outline-light:focus-visible {
@@ -644,11 +642,18 @@ p {
   margin-right: auto;
 }
 
+/* 버튼 안 아이콘(lucide 계열 선 아이콘) */
+.btn__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 /* Hero Scroll Indicator */
+/* 버튼 아래 가운데: 데스크톱 40px, 태블릿·모바일 32px 간격 */
 .hero__scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  right: 24px;
+  position: static;
+  margin-top: 40px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -656,12 +661,6 @@ p {
   justify-content: center;
   cursor: pointer;
   z-index: 3;
-}
-
-@media (max-width: 768px) {
-  .hero__scroll-indicator {
-    right: 16px;
-  }
 }
 
 .hero__scroll-indicator {
@@ -673,9 +672,10 @@ p {
   opacity: 1;
 }
 
+/* lucide arrow-down: 선 끝이 둥근 짝대기 화살표, 32px */
 .hero__arrow {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   animation: bob 1.6s ease-in-out infinite;
 }
 
@@ -706,7 +706,6 @@ p {
   }
 
   .hero__scroll-indicator {
-    position: static;
     margin-top: 32px;
   }
 }
@@ -814,22 +813,9 @@ p {
   color: rgba(250, 249, 246, 0.35);
 }
 
-.section--spots .tier-card__chevron {
-  color: rgba(250, 249, 246, 0.45);
-}
-
-.section--spots .tier-card--available:hover .tier-card__chevron {
-  color: var(--color-ground);
-}
-
 .section--spots .tier-badge--upcoming {
   border-color: rgba(250, 249, 246, 0.35);
   color: rgba(250, 249, 246, 0.6);
-}
-
-.section--spots .tier-card__cta {
-  /* 코코아 브라운을 밝게 눌러 만든 톤다운 브라운 */
-  color: color-mix(in srgb, var(--color-key) 55%, var(--color-ground));
 }
 
 /* 에디터 픽 */
@@ -979,19 +965,6 @@ p {
   gap: 10px;
 }
 
-.tier-card__chevron {
-  width: 20px;
-  height: 20px;
-  color: var(--gray-300);
-  flex-shrink: 0;
-  transition: transform 200ms ease, color 200ms ease;
-}
-
-.tier-card--available:hover .tier-card__chevron {
-  color: var(--color-ink);
-  transform: translateX(3px);
-}
-
 .tier-card__header {
   display: flex;
   flex-wrap: wrap;
@@ -1050,14 +1023,6 @@ p {
   color: var(--gray-500);
 }
 
-.tier-card__cta {
-  margin-top: auto;
-  padding-top: 20px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-key);
-}
-
 .tier-card {
   opacity: 0;
   transform: translateY(8px);
@@ -1073,8 +1038,7 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tier-card,
-  .tier-card__chevron {
+  .tier-card {
     transition: none;
   }
   .tier-card--available:hover,
@@ -1480,7 +1444,7 @@ html[lang="en"] .picks__title {
   background: var(--color-ground);
 }
 
-/* 흰 카드 4장: 아이콘 → STEP 라벨 → 단계 이름 */
+/* 4열: 16:9 사진 자리 → N단계 라벨 → 단계 이름. 카드 상자 없이 사진 아래 글자만 */
 .process__steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1497,15 +1461,11 @@ html[lang="en"] .picks__title {
 @media (max-width: 600px) {
   .process__steps {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 32px;
   }
 }
 
 .process__step {
-  background: white;
-  border: 1px solid var(--gray-200);
-  border-radius: 12px;
-  padding: 28px 28px 36px;
   min-width: 0;
   opacity: 0;
   transform: translateY(8px);
@@ -1517,12 +1477,34 @@ html[lang="en"] .picks__title {
   transform: translateY(0);
 }
 
-.process__icon {
-  width: 32px;
-  height: 32px;
-  color: var(--gray-500);
+.process__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.process__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  margin-bottom: 40px;
+}
+
+.process__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-300);
+}
+
+.process__wordmark {
+  width: 50%;
+  max-width: 100px;
 }
 
 .process__step-label {
@@ -1633,18 +1615,15 @@ html[lang="en"] .picks__title {
   transition: transform 600ms ease;
 }
 
-.district-card:hover .district-card__image {
-  transform: scale(1.03);
+.district-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* 아래쪽만 어둡게: 글자가 읽히는 만큼만 */
-.district-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(24, 22, 19, 0.72) 0%, rgba(24, 22, 19, 0.3) 35%, rgba(24, 22, 19, 0) 60%);
-  pointer-events: none;
-  z-index: 1;
+.district-card:hover .district-card__image {
+  transform: scale(1.03);
 }
 
 .district-card__placeholder {
@@ -1668,6 +1647,8 @@ html[lang="en"] .picks__title {
   bottom: 0;
   padding: 32px;
   z-index: 2;
+  /* 사진 위 흰 글자: 진회색 그림자를 옅게 */
+  text-shadow: 0 1px 4px rgba(58, 54, 47, 0.22), 0 1px 2px rgba(58, 54, 47, 0.12);
 }
 
 .district-card__label {
@@ -1884,10 +1865,11 @@ html[lang="en"] .picks__title {
   color: var(--color-ground);
 }
 
+/* hover: 히어로 아웃라인 버튼과 같게 흰색으로 채우고 글자는 Ink */
 .section--contact .btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: white;
   border-color: white;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  color: var(--color-ink);
 }
 
 .section--contact .contact__form {
@@ -2078,11 +2060,12 @@ html[lang="en"] .picks__title {
   text-align: center;
 }
 
-/* Footer */
+/* Footer — 헤더처럼 밝은 바탕(Ground) + 진한 글자(Ink) */
 .footer {
-  background: var(--color-ink);
-  color: var(--color-ground);
+  background: var(--color-ground);
+  color: var(--color-ink);
   padding: 64px 0 48px;
+  border-top: 1px solid var(--gray-200);
 }
 
 @media (max-width: 768px) {
@@ -2112,7 +2095,7 @@ html[lang="en"] .picks__title {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-ground);
+  color: var(--color-ink);
   display: block;
   line-height: 1;
 }
@@ -2132,11 +2115,11 @@ html[lang="en"] .picks__title {
 
 .footer__column-title {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-ground);
+  color: var(--gray-500);
   margin-bottom: 16px;
 }
 
@@ -2153,9 +2136,10 @@ html[lang="en"] .picks__title {
 .footer__links a {
   font-family: var(--font-body);
   font-size: 17px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-ground);
+  /* 첫 글자만 대문자. 자간은 헤더 영문 메뉴와 같은 +1% */
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--color-ink);
   transition: opacity 200ms ease;
   text-decoration: none;
 }
@@ -2166,7 +2150,7 @@ html[lang="en"] .picks__title {
 
 .footer__divider {
   height: 1px;
-  background: rgba(250, 249, 246, 0.14);
+  background: var(--gray-200);
   margin: 0 0 32px 0;
 }
 
@@ -2176,7 +2160,7 @@ html[lang="en"] .picks__title {
   gap: 8px;
   font-size: 13px;
   line-height: 1.6;
-  color: var(--color-ground);
+  color: var(--color-ink);
 }
 
 .footer__info {
@@ -2204,13 +2188,12 @@ a:focus-visible {
 }
 
 .footer__links a:focus-visible {
-  outline: 2px solid white;
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .btn:hover,
   .mobile-menu__link:hover {
     transform: none;
   }
