@@ -1,3 +1,7 @@
 # 기밀 문서: 공개 저장소에 올리지 않는다
 docs/brief/
 docs/design-hypotheses.md
+
+# 작업용 로컬 파일
+.claude/
+.DS_Store
