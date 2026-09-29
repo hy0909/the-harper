@@ -422,8 +422,9 @@ p {
   background: var(--color-key);
 }
 
+/* 열렸을 때 X: 1·3번 선을 같은 중심으로 모아 45도 회전. 햄버거와 같은 자리, 비슷한 크기 */
 .header__menu-toggle[aria-expanded="true"] .hamburger__line:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  transform: translateY(7px) rotate(45deg) scaleX(0.95);
 }
 
 .header__menu-toggle[aria-expanded="true"] .hamburger__line:nth-child(2) {
@@ -431,7 +432,7 @@ p {
 }
 
 .header__menu-toggle[aria-expanded="true"] .hamburger__line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: translateY(-7px) rotate(-45deg) scaleX(0.95);
 }
 
 /* Mobile Menu */
@@ -594,9 +595,10 @@ p {
   z-index: 1;
 }
 
+/* 모바일: 사진 가로의 28%만 보이므로 세 사람이 걸치는 42% 지점에 맞춘다 */
 @media (max-width: 768px) {
   .hero__image {
-    object-position: 62% 30%;
+    object-position: 42% 30%;
   }
 }
 
@@ -650,10 +652,10 @@ p {
 }
 
 /* Hero Scroll Indicator */
-/* 버튼 아래 가운데: 데스크톱 40px, 태블릿·모바일 32px 간격 */
+/* 버튼 아래 가운데: 데스크톱 60px, 태블릿·모바일 52px 간격 */
 .hero__scroll-indicator {
   position: static;
-  margin-top: 40px;
+  margin-top: 60px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -706,7 +708,7 @@ p {
   }
 
   .hero__scroll-indicator {
-    margin-top: 32px;
+    margin-top: 52px;
   }
 }
 
@@ -1576,6 +1578,7 @@ html[lang="en"] .picks__title {
 
 .area__description {
   font-size: 16px;
+  font-weight: 300;
   line-height: 1.65;
   color: var(--gray-700);
   max-width: 320px;
@@ -1655,7 +1658,7 @@ html[lang="en"] .picks__title {
   font-size: 14px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 10px;
+  margin: 0 0 4px;
 }
 
 .district-card__title {
