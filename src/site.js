@@ -345,6 +345,27 @@ function initHeroHeight() {
   });
 }
 
+/* Spots 아코디언: 티어를 누르면 그 설명이 펼쳐지고 오른쪽 이미지가 바뀐다 */
+function initSpotsAccordion() {
+  const items = Array.from(document.querySelectorAll('.spots__item'));
+  const slots = Array.from(document.querySelectorAll('.spots__image-slot'));
+  if (!items.length) return;
+  const activate = (item) => {
+    const tier = item.dataset.tier;
+    items.forEach((it) => {
+      const on = it === item;
+      it.classList.toggle('spots__item--active', on);
+      it.querySelector('.spots__item-header').setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    slots.forEach((slot) => {
+      slot.classList.toggle('spots__image-slot--active', slot.dataset.tier === tier);
+    });
+  };
+  items.forEach((item) => {
+    item.querySelector('.spots__item-header').addEventListener('click', () => activate(item));
+  });
+}
+
 function initHeaderScroll() {
   const header = document.querySelector('.header');
   const hero = document.getElementById('hero');
@@ -514,7 +535,7 @@ function initScrollAnimation() {
   if (prefersReducedMotion) {
     // If user prefers reduced motion, just make everything visible immediately
     const elements = document.querySelectorAll(
-      '.about__card, .tier-card, .process__step, .area__text, .area__map, .district-card, .pick-card, .partner-tile, .contact__form-wrapper'
+      '.about__card, .spots__layout, .process__step, .area__text, .area__map, .district-card, .pick-card, .partner-tile, .contact__form-wrapper'
     );
     elements.forEach(el => {
       el.classList.add('fade-in');
@@ -542,7 +563,7 @@ function initScrollAnimation() {
 
   // Observe all fade-in elements
   const elements = document.querySelectorAll(
-    '.about__card, .tier-card, .process__step, .area__text, .area__map, .district-card, .pick-card, .partner-tile, .contact__form-wrapper'
+    '.about__card, .spots__layout, .process__step, .area__text, .area__map, .district-card, .pick-card, .partner-tile, .contact__form-wrapper'
   );
   elements.forEach(el => {
     observer.observe(el);
@@ -736,6 +757,7 @@ function updateMapPopupLanguage() {
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageToggle();
   initHeroHeight();
+  initSpotsAccordion();
   initHeaderScroll();
   initMobileMenu();
   initNavLinkClosing();

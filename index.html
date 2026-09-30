@@ -19,7 +19,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <link rel="preload" as="image" href="src/assets/hero.webp?v=7" imagesrcset="src/assets/hero-1800.webp?v=7 1800w, src/assets/hero.webp?v=7 3000w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="src/styles/site.css?v=110">
+  <link rel="stylesheet" href="src/styles/site.css?v=111">
   <title data-i18n="site-title">더하퍼 — K-패션 에디터 큐레이션, 서울</title>
 </head>
 <body>
@@ -135,70 +135,98 @@ Curated by Editors</h1>
           <p class="section__label" data-i18n="section-spots">Spots</p>
           <h2 id="spots-heading" class="section__heading" data-i18n="spots-headline">패션 에디터가 소개하는 K-패션 스팟</h2>
         </div>
-        <div class="spots__grid">
-          <a class="tier-card tier-card--available" href="https://www.instagram.com/theharper.kr" target="_blank" rel="noopener">
-            <div class="tier-card__top">
-              <svg class="tier-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11a2 2 0 0 1 2 2v14a1.5 1.5 0 0 0-1.5-1.5H4z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13a2 2 0 0 0-2 2v14a1.5 1.5 0 0 1 1.5-1.5H20z"/></svg>
-              <span class="tier-card__top-right">
+        <!-- 티어 목록(왼쪽) + 설명 이미지(오른쪽). 누르면 펼쳐지고 이미지가 바뀐다 -->
+        <div class="spots__layout">
+          <div class="spots__list">
+            <div class="spots__item spots__item--active" data-tier="discover">
+              <button type="button" class="spots__item-header" aria-expanded="true" aria-controls="spots-panel-discover">
+                <span class="spots__item-title" data-i18n="tier-discover-title">DISCOVER</span>
                 <span class="tier-badge" data-i18n="tier-badge-pick">11월 오픈</span>
-              </span>
+              </button>
+              <div class="spots__item-body" id="spots-panel-discover" role="region">
+                <div class="spots__item-body-inner">
+                  <p class="spots__item-desc" data-i18n="tier-discover-desc">무료 디지털 매거진</p>
+                </div>
+              </div>
             </div>
-            <div class="tier-card__header">
-              <h3 class="tier-card__title" data-i18n="tier-discover-title">DISCOVER</h3>
-            </div>
-            <p class="tier-card__description" data-i18n="tier-discover-desc">무료 디지털 매거진</p>
-          </a>
-
-          <a class="tier-card tier-card--available" href="https://www.instagram.com/theharper.kr" target="_blank" rel="noopener">
-            <div class="tier-card__top">
-              <svg class="tier-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-              <span class="tier-card__top-right">
+            <div class="spots__item" data-tier="daydrop">
+              <button type="button" class="spots__item-header" aria-expanded="false" aria-controls="spots-panel-daydrop">
+                <span class="spots__item-title" data-i18n="tier-daydrop-title">DAY DROP</span>
                 <span class="tier-badge" data-i18n="tier-badge-pick">11월 오픈</span>
-              </span>
+              </button>
+              <div class="spots__item-body" id="spots-panel-daydrop" role="region">
+                <div class="spots__item-body-inner">
+                  <p class="spots__item-desc" data-i18n="tier-daydrop-desc">반나절 단품 큐레이션</p>
+                </div>
+              </div>
             </div>
-            <div class="tier-card__header">
-              <h3 class="tier-card__title" data-i18n="tier-daydrop-title">DAY DROP</h3>
+            <div class="spots__item" data-tier="capsule">
+              <button type="button" class="spots__item-header" aria-expanded="false" aria-controls="spots-panel-capsule">
+                <span class="spots__item-title" data-i18n="tier-capsule-title">CAPSULE</span>
+                <span class="tier-badge tier-badge--upcoming" data-i18n="tier-badge-coming">추후 공개</span>
+              </button>
+              <div class="spots__item-body" id="spots-panel-capsule" role="region">
+                <div class="spots__item-body-inner">
+                  <p class="spots__item-desc" data-i18n="tier-capsule-desc">종일 1:1 큐레이션</p>
+                </div>
+              </div>
             </div>
-            <p class="tier-card__description" data-i18n="tier-daydrop-desc">반나절 단품 큐레이션</p>
-          </a>
-
-          <div class="tier-card tier-card--upcoming">
-            <div class="tier-card__top">
-              <svg class="tier-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7.5" width="17" height="10" rx="5"/><path d="M12 7.5v10"/></svg>
-            <span class="tier-card__top-right">
-              <span class="tier-badge tier-badge--upcoming" data-i18n="tier-badge-coming">추후 공개</span>
-            </span>
-</div>
-            <div class="tier-card__header">
-              <h3 class="tier-card__title" data-i18n="tier-capsule-title">CAPSULE</h3>
+            <div class="spots__item" data-tier="signature">
+              <button type="button" class="spots__item-header" aria-expanded="false" aria-controls="spots-panel-signature">
+                <span class="spots__item-title" data-i18n="tier-signature-title">SIGNATURE</span>
+                <span class="tier-badge tier-badge--upcoming" data-i18n="tier-badge-coming">추후 공개</span>
+              </button>
+              <div class="spots__item-body" id="spots-panel-signature" role="region">
+                <div class="spots__item-body-inner">
+                  <p class="spots__item-desc" data-i18n="tier-signature-desc">1박 헤리티지 투어</p>
+                </div>
+              </div>
             </div>
-            <p class="tier-card__description" data-i18n="tier-capsule-desc">종일 1:1 큐레이션</p>
+            <div class="spots__item" data-tier="bespoke">
+              <button type="button" class="spots__item-header" aria-expanded="false" aria-controls="spots-panel-bespoke">
+                <span class="spots__item-title" data-i18n="tier-bespoke-title">BESPOKE</span>
+                <span class="tier-badge tier-badge--upcoming" data-i18n="tier-badge-coming">추후 공개</span>
+              </button>
+              <div class="spots__item-body" id="spots-panel-bespoke" role="region">
+                <div class="spots__item-body-inner">
+                  <p class="spots__item-desc" data-i18n="tier-bespoke-desc">VIP 맞춤 투어</p>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="tier-card tier-card--upcoming">
-            <div class="tier-card__top">
-              <svg class="tier-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/></svg>
-            <span class="tier-card__top-right">
-              <span class="tier-badge tier-badge--upcoming" data-i18n="tier-badge-coming">추후 공개</span>
-            </span>
-</div>
-            <div class="tier-card__header">
-              <h3 class="tier-card__title" data-i18n="tier-signature-title">SIGNATURE</h3>
+          <div class="spots__visual">
+            <div class="spots__image">
+              <div class="spots__image-slot spots__image-slot--active" data-tier="discover">
+                <div class="spots__image-placeholder" aria-hidden="true">
+                  <svg class="spots__wordmark" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><text x="100" y="35" font-family="Cormorant Garamond" font-size="28" font-weight="500" text-anchor="middle" fill="currentColor">THE HARPER</text></svg>
+                  <!-- DISCOVER 설명 이미지 자리: 16:9, 나중에 교체 -->
+                </div>
+              </div>
+              <div class="spots__image-slot" data-tier="daydrop">
+                <div class="spots__image-placeholder" aria-hidden="true">
+                  <svg class="spots__wordmark" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><text x="100" y="35" font-family="Cormorant Garamond" font-size="28" font-weight="500" text-anchor="middle" fill="currentColor">THE HARPER</text></svg>
+                  <!-- DAY DROP 설명 이미지 자리: 16:9, 나중에 교체 -->
+                </div>
+              </div>
+              <div class="spots__image-slot" data-tier="capsule">
+                <div class="spots__image-placeholder" aria-hidden="true">
+                  <svg class="spots__wordmark" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><text x="100" y="35" font-family="Cormorant Garamond" font-size="28" font-weight="500" text-anchor="middle" fill="currentColor">THE HARPER</text></svg>
+                  <!-- CAPSULE 설명 이미지 자리: 16:9, 나중에 교체 -->
+                </div>
+              </div>
+              <div class="spots__image-slot" data-tier="signature">
+                <div class="spots__image-placeholder" aria-hidden="true">
+                  <svg class="spots__wordmark" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><text x="100" y="35" font-family="Cormorant Garamond" font-size="28" font-weight="500" text-anchor="middle" fill="currentColor">THE HARPER</text></svg>
+                  <!-- SIGNATURE 설명 이미지 자리: 16:9, 나중에 교체 -->
+                </div>
+              </div>
+              <div class="spots__image-slot" data-tier="bespoke">
+                <div class="spots__image-placeholder" aria-hidden="true">
+                  <svg class="spots__wordmark" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><text x="100" y="35" font-family="Cormorant Garamond" font-size="28" font-weight="500" text-anchor="middle" fill="currentColor">THE HARPER</text></svg>
+                  <!-- BESPOKE 설명 이미지 자리: 16:9, 나중에 교체 -->
+                </div>
+              </div>
             </div>
-            <p class="tier-card__description" data-i18n="tier-signature-desc">1박 헤리티지 투어</p>
-          </div>
-
-          <div class="tier-card tier-card--upcoming">
-            <div class="tier-card__top">
-              <svg class="tier-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h16l-1.5-9-4.5 4-2-6-2 6-4.5-4z"/><path d="M5 20h14"/></svg>
-            <span class="tier-card__top-right">
-              <span class="tier-badge tier-badge--upcoming" data-i18n="tier-badge-coming">추후 공개</span>
-            </span>
-</div>
-            <div class="tier-card__header">
-              <h3 class="tier-card__title" data-i18n="tier-bespoke-title">BESPOKE</h3>
-            </div>
-            <p class="tier-card__description" data-i18n="tier-bespoke-desc">VIP 맞춤 투어</p>
           </div>
         </div>
 
@@ -493,6 +521,6 @@ Curated by Editors</h1>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
-  <script src="src/site.js?v=55"></script>
+  <script src="src/site.js?v=56"></script>
 </body>
 </html>

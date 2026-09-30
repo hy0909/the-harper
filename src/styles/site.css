@@ -542,7 +542,7 @@ p {
 .section__label {
   font-family: var(--font-body);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -796,44 +796,6 @@ p {
   color: var(--color-ground);
 }
 
-/* 티어 카드: 바탕보다 살짝 밝은 면 */
-.section--spots .tier-card {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.14);
-  color: var(--color-ground);
-}
-
-.section--spots .tier-card--available:hover {
-  border-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-}
-
-.section--spots .tier-card--upcoming {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-.section--spots .tier-card__title {
-  color: rgba(250, 249, 246, 0.6);
-}
-
-.section--spots .tier-card--upcoming .tier-card__title,
-.section--spots .tier-card--upcoming .tier-card__description {
-  color: rgba(250, 249, 246, 0.55);
-}
-
-.section--spots .tier-card__description {
-  color: var(--color-ground);
-}
-
-.section--spots .tier-card__icon {
-  color: var(--color-point);
-}
-
-.section--spots .tier-card--upcoming .tier-card__icon {
-  color: rgba(250, 249, 246, 0.35);
-}
-
 .section--spots .tier-badge--upcoming {
   border-color: rgba(250, 249, 246, 0.35);
   color: rgba(250, 249, 246, 0.6);
@@ -903,113 +865,6 @@ p {
   color: rgba(250, 249, 246, 0.8);
 }
 
-.spots__grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 24px;
-}
-
-@media (max-width: 1100px) {
-  .spots__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: auto auto;
-  }
-
-  .spots__grid .tier-card:nth-child(4),
-  .spots__grid .tier-card:nth-child(5) {
-    grid-column: auto;
-  }
-
-  .spots__grid .tier-card:nth-child(4) {
-    grid-column: 2 / 3;
-  }
-}
-
-@media (max-width: 700px) {
-  .spots__grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-
-  .spots__grid .tier-card:nth-child(4) {
-    grid-column: auto;
-  }
-}
-
-.tier-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 24px;
-  border-radius: 12px;
-  background: white;
-  border: 1px solid var(--gray-200);
-  color: var(--color-ink);
-  text-decoration: none;
-  min-width: 0;
-  transition: opacity 500ms ease, transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-}
-
-.tier-card--available:hover {
-  transform: translateY(-3px);
-  border-color: var(--gray-300);
-  box-shadow: 0 12px 28px rgba(58, 54, 47, 0.08);
-}
-
-.tier-card--upcoming {
-  background: transparent;
-  border: 1px dashed var(--gray-300);
-  color: var(--gray-500);
-}
-
-.tier-card__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 40px;
-}
-
-.tier-card__icon {
-  width: 32px;
-  height: 32px;
-  color: var(--color-key);
-  flex-shrink: 0;
-}
-
-.tier-card--upcoming .tier-card__icon {
-  color: var(--gray-300);
-}
-
-.tier-card__top-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.tier-card__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 10px;
-  margin-bottom: 6px;
-}
-
-/* 위계: 티어 이름(DISCOVER)은 작은 라벨, 설명이 큰 제목 */
-.tier-card__title {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1.4;
-  color: var(--gray-500);
-}
-
-.tier-card--upcoming .tier-card__title {
-  color: var(--gray-500);
-}
-
 .tier-badge {
   flex-shrink: 0;
   font-family: var(--font-body);
@@ -1031,40 +886,150 @@ p {
   color: var(--gray-500);
 }
 
-.tier-card__description {
-  font-family: var(--font-body);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.016em;
-  color: var(--color-ink);
-}
-
-.tier-card--upcoming .tier-card__description {
-  color: var(--gray-500);
-}
-
-.tier-card {
+/* Spots: 왼쪽 티어 목록(아코디언) + 오른쪽 설명 이미지 */
+.spots__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 64px;
+  align-items: start;
   opacity: 0;
   transform: translateY(8px);
+  transition: opacity 500ms ease, transform 500ms ease;
 }
 
-.tier-card.fade-in {
+.spots__layout.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-.tier-card--available.fade-in:hover {
-  transform: translateY(-3px);
+.spots__list {
+  border-top: 1px solid rgba(250, 249, 246, 0.2);
+}
+
+.spots__item {
+  border-bottom: 1px solid rgba(250, 249, 246, 0.2);
+}
+
+.spots__item-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  line-height: 1.3;
+  color: rgba(250, 249, 246, 0.5);
+  transition: color 200ms ease;
+}
+
+.spots__item-header:hover,
+.spots__item--active .spots__item-header {
+  color: var(--color-ground);
+}
+
+.spots__item--active .spots__item-header {
+  font-weight: 700;
+}
+
+.spots__item-header:focus-visible {
+  outline: 2px solid var(--color-ground);
+  outline-offset: 2px;
+}
+
+/* 펼침·접힘: 높이를 0 → 내용 높이로 부드럽게 */
+.spots__item-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+}
+
+.spots__item--active .spots__item-body {
+  grid-template-rows: 1fr;
+}
+
+.spots__item-body-inner {
+  overflow: hidden;
+}
+
+.spots__item-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(250, 249, 246, 0.75);
+  margin: 0 0 24px;
+}
+
+.spots__visual {
+  position: sticky;
+  top: 104px;
+}
+
+.spots__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.spots__image-slot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.spots__image-slot--active {
+  opacity: 1;
+}
+
+.spots__image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spots__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(250, 249, 246, 0.3);
+}
+
+.spots__wordmark {
+  width: 40%;
+  max-width: 140px;
+}
+
+@media (max-width: 900px) {
+  .spots__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .spots__visual {
+    position: static;
+    order: -1;
+  }
+  .spots__item-header {
+    padding: 18px 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tier-card {
+  .spots__item-body,
+  .spots__image-slot {
     transition: none;
-  }
-  .tier-card--available:hover,
-  .tier-card--available.fade-in:hover {
-    transform: none;
   }
 }
 
@@ -1322,7 +1287,7 @@ html[lang="en"] .picks__title {
 }
 
 .pick-card__meta {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--gray-500);
   display: flex;
   align-items: center;
@@ -1438,7 +1403,7 @@ html[lang="en"] .picks__title {
 /* 옆 카드와 같은 간격(12px)·글자 스타일로 by THE HARPER Editors 표기 */
 .pick-card--featured .pick-card__meta {
   grid-row: 4;
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(250, 249, 246, 0.55);
   padding-top: 12px;
   padding-bottom: 24px;
@@ -1541,7 +1506,7 @@ html[lang="en"] .picks__title {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: -0.016em;
   text-transform: uppercase;
   color: var(--gray-500);
   margin: 0 0 6px;
