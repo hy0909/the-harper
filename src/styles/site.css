@@ -148,7 +148,7 @@ p {
   height: 100%;
 }
 
-/* 워드마크: 브랜드 가이드대로 Cormorant Garamond Regular(400), 자간 넓게 */
+/* 워드마크: 세리프 Regular(400), 자간 넓게 */
 .logo {
   font-family: var(--font-display);
   font-size: 26px;

@@ -74,6 +74,7 @@
 | 워드마크, 헤드라인 | Cormorant Garamond | 300 / 400 / 500 / 600 | 400(워드마크), 500(히어로 제목, 모바일 메뉴) | `--font-display` |
 | UI, 본문(국문), 태그 | Noto Sans KR | 300 / 400 / 500 / 700 | 300 / 400 / 500 / 700 | `--font-body` |
 
+- [시험 중] 2026-09-30부터 홈페이지는 Cormorant Garamond 대신 Tinos(Times New Roman과 같은 디자인의 무료 서체, 400·700)를 `--font-display`에 넣어 보고 있다. 로고 이미지가 Times 계열이라 맞춰 본 것이고, 어느 쪽으로 갈지 정하면 이 줄을 지우고 표를 고친다.
 - Cormorant Garamond는 워드마크와 헤드라인 전용이다. 본문이나 버튼에는 쓰지 않고, 두 서체의 역할을 섞지 않는다.
 - 워드마크는 Cormorant Garamond Regular(400)에 자간을 넓게 준다. 홈페이지 헤더·푸터 로고는 자간 +8%.
 - 웹에서는 두 서체 모두 Google Fonts에서 불러온다. 둘 다 오픈소스라 상업적 사용이 가능하다.
