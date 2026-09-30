@@ -6,6 +6,13 @@
   --color-ink: #3A362F;    /* 잉크: 본문 텍스트, 워드마크 */
   --color-point: #D6A3AB;  /* 안틱 로즈: 배지, 강조 (작은 면적만) */
 
+  /* 보조색(확장 팔레트): 띠·카드 배경 전용, 글자는 잉크로 */
+  --color-blush: #E8B4B8;      /* 블라섬 블러시 */
+  --color-beige: #D8C3A5;      /* 밀크티 베이지 */
+  --color-jade: #8FA693;       /* 제이드 위스퍼 */
+  --color-terracotta: #C97B5C; /* 테라코타 클레이: 큰 글자·숫자만 */
+  --color-amber: #C9A15C;      /* 앰버 골드 */
+
   /* 그레이스케일 */
   --gray-900: #3A362F;     /* = Ink, headlines/body */
   --gray-700: #5C5750;     /* secondary text */

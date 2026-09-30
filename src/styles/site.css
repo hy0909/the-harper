@@ -541,7 +541,7 @@ p {
 /* 섹션명: 헤더 메뉴와 같은 서체(Noto Sans KR 500), 첫 글자만 대문자, 자간 +1% */
 .section__label {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: 0.01em;
