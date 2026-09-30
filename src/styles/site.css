@@ -188,7 +188,7 @@ p {
 /* 데스크톱 메뉴: 원래 서체(Noto Sans KR 300)로 복원, 18px */
 .header__nav-link {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.01em; /* 영문 메뉴 자간 +1% */
   color: var(--color-ink);
