@@ -23,7 +23,8 @@
   --gray-50: #F4F2EE;      /* alternate section background */
 
   /* 서체 */
-  --font-display: "Tinos", "Times New Roman", Times, serif; /* 워드마크, 헤드라인 전용. 2026-09-30 Tinos 시험 적용 중(가이드 원안은 Cormorant Garamond) */
+  --font-display: "Cormorant Garamond", Georgia, serif; /* 헤드라인 전용 */
+  --font-logo: "Tinos", "Times New Roman", Times, serif; /* 워드마크(로고) 전용. 로고 이미지와 같은 Times 계열 */
   --font-body: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 

@@ -148,9 +148,9 @@ p {
   height: 100%;
 }
 
-/* 워드마크: 세리프 Regular(400), 자간 넓게 */
+/* 워드마크: 로고 이미지와 같은 Tinos Regular(400), 자간 넓게 */
 .logo {
-  font-family: var(--font-display);
+  font-family: var(--font-logo);
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -2090,7 +2090,7 @@ html[lang="en"] .picks__title {
 }
 
 .footer__wordmark {
-  font-family: var(--font-display);
+  font-family: var(--font-logo);
   font-size: clamp(40px, 6vw, 64px);
   font-weight: 400;
   letter-spacing: 0.08em;
