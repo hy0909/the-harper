@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FAF6F0"/><stop offset="1" stop-color="#F1E8DC"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".92"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".5"/></linearGradient>
+<linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".35"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6B57"/><stop offset="1" stop-color="#6F4A3A"/></linearGradient>
+<filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#6F4A3A" flood-opacity=".13"/></filter>
+</defs>
+<rect width="480" height="270" fill="url(#bg)"/>
+<g filter="url(#blur)" transform="translate(240 135) scale(1.35) translate(-240 -135)"><circle cx="222" cy="135" r="46" fill="#E8B4B8" opacity="0.5"/><circle cx="262" cy="118" r="40" fill="#8FA693" opacity="0.38"/></g>
+<g transform="translate(240 135) scale(1.25) translate(-240 -135)">
+<rect x="196" y="48" width="92" height="174" rx="20" fill="url(#glass)" stroke="url(#rim)" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="228" y="60" width="28" height="6" rx="3" fill="#FFFFFF" opacity=".9"/>
+<rect x="210" y="80" width="64" height="58" rx="10" fill="url(#accent)"/>
+<path d="M226 126l14-18 10 12 7-8 9 14z" fill="#D8C3A5" opacity=".85"/>
+<rect x="210" y="150" width="64" height="8" rx="4" fill="#6F4A3A" opacity=".45"/>
+<rect x="210" y="166" width="44" height="8" rx="4" fill="#6F4A3A" opacity=".3"/>
+<rect x="210" y="186" width="64" height="20" rx="10" fill="#FFFFFF" opacity=".85"/>
+<path d="M314 70c2 14 6 18 20 20-14 2-18 6-20 20-2-14-6-18-20-20 14-2 18-6 20-20z" fill="url(#accent)"/>
+<path d="M170 168c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="#D6A3AB"/>
+</g>
+</svg>
