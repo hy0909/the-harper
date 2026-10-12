@@ -102,7 +102,7 @@ const translations = {
     'form-fallback': '자동 발송에 실패해 메일 앱을 엽니다. 열리지 않으면 contact@theharper.co.kr 로 직접 보내 주세요.',
     'footer-menu': 'Menu',
     'footer-social': 'Social',
-    'footer-info': 'THE HARPER Co., Ltd. · 서울특별시 서초구 · 사업자등록번호 000-00-00000 · hello@theharper.co.kr',
+    'footer-info': 'THE HARPER Co., Ltd. · 서울특별시 서초구 · 사업자등록번호 000-00-00000 · contact@theharper.co.kr',
     'footer-copyright': '© 2026 THE HARPER',
   },
   en: {
@@ -205,7 +205,7 @@ const translations = {
     'form-fallback': 'Automatic sending failed, so we are opening your mail app. If it does not open, email contact@theharper.co.kr directly.',
     'footer-menu': 'Menu',
     'footer-social': 'Social',
-    'footer-info': 'THE HARPER Co., Ltd. · Seocho-gu, Seoul · Business Reg. No. 000-00-00000 · hello@theharper.co.kr',
+    'footer-info': 'THE HARPER Co., Ltd. · Seocho-gu, Seoul · Business Reg. No. 000-00-00000 · contact@theharper.co.kr',
     'footer-copyright': '© 2026 THE HARPER',
   }
 };
